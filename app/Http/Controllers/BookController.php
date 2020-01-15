@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Http\Requests\BookCreateRequest;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BookController extends Controller
 {
@@ -25,6 +26,8 @@ class BookController extends Controller
         $book = Book::create($request->only('name', 'description'));
         // Asociar el sistema de etiquetas al libro registrado
         $book->tag($tags);
+
+        // Alert::success('Información del sistema', 'Libro registrado correctamente');
 
         return back()->with('info', 'Libro registrado correctamente en el sistema');
     }

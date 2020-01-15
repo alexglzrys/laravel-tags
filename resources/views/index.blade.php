@@ -10,11 +10,14 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        
+        <!-- Scripts  -->
+        <script src="{{ asset('js/app.js') }}"></script>
+
         <!-- Librerías CDN - Las versiones de estas librerías se encuentran descontinuadas (entran en conflicto con algunas recientes - jquery) o no existen en NPM -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css">
     </head>
     <body>
+
         <div class="container">
             <div class="row">
                 <div class="col-8 offset-2">
@@ -24,7 +27,15 @@
                     
                     <!-- Mensajes -->
                     @if(session('info'))
-                        <div class="alert alert-success">{{ session('info') }}</div>
+                        <script>
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: "{{ session('info') }}",
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        </script>
                     @endif
                     
                     @if(count($errors))
@@ -72,9 +83,6 @@
                 </div>
             </div>
         </div>
-        <!-- Scripts  -->
-        <script src="{{ asset('js/app.js') }}"></script>
-
         <!-- Librerías CDN - Las versiones de estas librerías se encuentran descontinuadas (entran en conflicto con algunas recientes - jquery) o no existen en NPM -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
     </body>

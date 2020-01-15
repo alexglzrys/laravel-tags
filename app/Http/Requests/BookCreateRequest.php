@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BookCreateRequest extends FormRequest
 {
