@@ -22,6 +22,7 @@
                     <p>Sistema de etiquetas basado en el componente laravel-tagging</p>
                     <hr>
                     <form action="{{ route('books.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="name">Nombre del Libro</label>
                             <input type="text" name="name" id="name" class="form-control" placeholder="Ingrese el nombre del libro">
@@ -32,7 +33,7 @@
                         </div>
                         <div class="form-group card bg-light">
                             <div class="card-body">
-                                <label for="tags">Etiquetas (separadas por comas)</label>
+                                <label for="tags">Etiquetas (separadas por coma)</label>
                                 <input type="text" name="tags" data-role="tagsinput" id="tags" class="form-control">
                             </div>
                         </div>

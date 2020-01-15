@@ -15,6 +15,16 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
+        // Inspeccinar la petición enviada por el navegador, para saber como guardar la información.
+        // dd($request->all());
 
+        // Generar un array de etiquetas a partir de la cadena enviada por el formulario
+        $tags = explode(',', $request->tags);
+        // Registrar un libro
+        $book = Book::create($request->only('name', 'description'));
+        // Asociar el sistema de etiquetas al libro registrado
+        $book->tag($tags);
+
+        return back()->with('info', 'Libro registrado correctamente en el sistema');
     }
 }
