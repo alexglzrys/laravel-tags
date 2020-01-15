@@ -10,6 +10,9 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        
+        <!-- Librerías CDN - Las versiones de estas librerías se encuentran descontinuadas (entran en conflicto con algunas recientes - jquery) o no existen en NPM -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css">
     </head>
     <body>
         <div class="container">
@@ -27,9 +30,11 @@
                             <label for="description">Descripción</label>
                             <textarea name="description" id="" cols="30" rows="5" class="form-control" placeholder="Ingrese la descripción detallada del libro"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="tags">Etiquetas</label>
-                            <input type="text" name="tags" id="tags" class="form-control">
+                        <div class="form-group card bg-light">
+                            <div class="card-body">
+                                <label for="tags">Etiquetas (separadas por comas)</label>
+                                <input type="text" name="tags" data-role="tagsinput" id="tags" class="form-control">
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
@@ -52,5 +57,8 @@
         </div>
         <!-- Scripts  -->
         <script src="{{ asset('js/app.js') }}"></script>
+
+        <!-- Librerías CDN - Las versiones de estas librerías se encuentran descontinuadas (entran en conflicto con algunas recientes - jquery) o no existen en NPM -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
     </body>
 </html>
