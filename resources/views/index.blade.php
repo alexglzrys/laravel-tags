@@ -21,6 +21,22 @@
                     <h1 class="mt-4 mb-1"><i class="fas fa-tags"></i> Laravel Book Tags</h1>
                     <p>Sistema de etiquetas basado en el componente laravel-tagging</p>
                     <hr>
+                    
+                    <!-- Mensajes -->
+                    @if(session('info'))
+                        <div class="alert alert-success">{{ session('info') }}</div>
+                    @endif
+                    
+                    @if(count($errors))
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="{{ route('books.store') }}" method="POST">
                         @csrf
                         <div class="form-group">

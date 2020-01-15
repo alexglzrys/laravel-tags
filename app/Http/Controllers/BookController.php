@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Http\Requests\BookCreateRequest;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -13,7 +14,7 @@ class BookController extends Controller
         return view('index', compact('books'));
     }
 
-    public function store(Request $request)
+    public function store(BookCreateRequest $request)
     {
         // Inspeccinar la petición enviada por el navegador, para saber como guardar la información.
         // dd($request->all());
